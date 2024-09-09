@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartório de Imóveis de Mata de São João</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Adamina&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(138, 130, 87);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 25px;
+            color: white;
+        }
+
+        header {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            position: relative;
+            padding: 30px;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+            z-index: 1;
+            background-image: url('imagens/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.5);
+            image-rendering: optimizeQuality;
+        }
+
+        header img {
+            width: auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav {
+            margin-top: -20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 14px 20px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: hsl(307, 67%, 39%);
+        }
+
+        .search-container {
+            position: relative;
+            top: -260px;
+            right: 20px;
+            z-index: 2;
+            margin-top: -32px;
+        }
+
+        .search-container form {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .search-container input[type="search"] {
+            width: 300px;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-container button {
+            padding: 6px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .parallax {
+            height: 400px;
+            background: url('sua-imagem.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .content {
+            padding: 50px;
+            background-color: #fff;
+            z-index: 2;
+        }
+
+        .tamanho-especial {
+            font-size: 10px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .search-container {
+                position: static;
+                margin: 20px 0;
+            }
+
+            .search-container input[type="search"] {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .search-container input[type="search"] {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .search-container button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="imagens/logo.png" alt="Logo do Cartório" height="200" width="250">
+        </div>
+        <h1><strong><br><br>Bem-vindo(a) 😃 a
+            Serventia de Registro de Imóveis, Hipotecas, Títulos e Documentos e das Pessoas Jurídicas da Comarca de Mata De São João - BA</strong></h1>
+        <div class="search-container">
+            <form id="form-busca-protocolos" onsubmit="return buscar(event, 'form-busca-protocolos')">
+                <input type="search" placeholder="Buscar Protocolos" name="query">
+                <button type="submit">Buscar</button>
+            </form>
+            <form id="form-busca-certidoes" onsubmit="return buscar(event, 'form-busca-certidoes')">
+                <input type="search" placeholder="Buscar Certidões" name="query">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">INÍCIO</a></li>
+            <li><a href="fale-conosco.html">FALE CONOSCO</a></li>
+            <li><a href="duvidas.html">DÚVIDAS</a></li>
+            <li><a href="informacoes.html">INFORMAÇÕES DO CARTÓRIO</a></li>
+            <li><a href="links.html">LINKS</a></li>
+            <li><a href="legislacao.html">LEGISLAÇÃO</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h3>Bem-vindo ao Cartório De Registro De Imóveis De Mata De São João</h3>
+                <p>Registramos e regularizamos imóveis com eficiência e confiabilidade.😃</p>
+                <hr>
+            </div>
+        </section>
+        <section>
+            <h4 style="color: black;">O Cartório</h4>
+            <p><strong>
+               O Ofício do Registro De Imóveis, Títulos e Documentos e Pessoas Jurídicas é um Cartório de Registro de Imóveis, Registro Civil de Pessoas Jurídicas que está localizado na Rua Laurindo Régis, nº 548, Centro, cidade de Mata de São João em BA. Como estabelecimento cartorário de terceira entrância, possui atribuições para prestar serviços e expedir certidões e documentos em geral como cartório de registro de imóveis, registro de títulos e documentos, registro civil de pessoas jurídicas e sua abrangência é nos Municípios de Mata de São João e Itanagra.
+                Confira acima o telefone, bem como todos os dados para você entrar em contato com o cartório e solicitar documentações, horário de funcionamento, serviços ou certidões:
+                O responsável legal pelo Ofício Do Registro De Imóveis, Títulos e Documentos e Pessoas Jurídicas registrado junto aos órgãos de fiscalização do serviços notariais do Brasil é o Oficial Pedro Pontes de Azevêdo.</strong>
+                <hr>
+            </p>
+        </section>
+        <img src="imagens/20230207_181232.jpg" alt="cartório" height="720" width="1800">
+        <section>
+            <hr>
+            <h5 style="color: black; font-size: larger;">Nossos Serviços</h5>
+            <p>Oferecemos uma variedade de serviços relacionados ao registro de imóveis, incluindo:</p>
+            <ul>
+                <li>Usufruto</li>
+                <li>Benfeitorias</li>
+                <li>Averbações</li>
+                <li>Permutas</li>
+                <li>Contratos</li>
+                <li>Certidões de atos registrados</li>
+                <li>Hipotecas</li>
+                <li>Escritura Pública</li>
+                <li>Usucapião</li>
+                <li>Doação</li>
+                <li>Penhoras</li>
+                <li>Matrícula do imóvel</li>
+            </ul>
+            <hr>
+        </section>
+        <section>
+            <a href="informacoes.html" class="btn">
+                <button style="color: rgb(123, 14, 233); font-size: 22px;">CLIQUE AQUI E SAIBA MAIS</button>
+            </a>
+        </section>
+    </main>
+    <div class="results" id="results"></div>
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function buscar(event, formId) {
+            event.preventDefault();
+            var form = $('#' + formId);
+            var query = form.find('input[name="query"]').val();
+            console.log(Form ID: $,{formId}, Query: ${query});
+            $.ajax({
+                url: '/buscar',
+                type: 'POST',
+                data: { query: query },
+                success: function(data) {
+                    console.log("Data received:", data);
+                    var resultsDiv = $('#results');
+                    resultsDiv.empty();
+                    if (data.length === 0) {
+                        resultsDiv.append('<p>Nenhum resultado encontrado</p>');
+                    } else {
+                        var list = $('<ul></ul>');
+                        data.forEach(function(item) {
+                            var listItem = $('<li></li>').text(Protocolo: ${item.numero_protocolo}, Status: ${item.status});
+                            list.append(listItem);
+                        });
+                        resultsDiv.append(list);
+                    }
+                },
+                error: function(err) {
+                    console.error("Error:", err);
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".chat-input button").addEventListener("click", sendMessage);
+            document.querySelector("#user-input").addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+            });
+        });
+
+        let currentStep = "menu";  // Variável para rastrear o estágio da conversa
+
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value.trim();
+            if (userInput === "") return;
+
+            addMessage(userInput, "user-message");
+
+            var botResponse = getBotResponse(userInput);
+            setTimeout(function() {
+                addMessage(botResponse, "bot-message", true);  // Define true para usar innerHTML
+            }, 1000);
+
+            document.getElementById("user-input").value = "";
+        }
+
+        function addMessage(text, className, isHTML = false) {
+            var chatBody = document.getElementById("chat-body");
+            var messageDiv = document.createElement("div");
+            messageDiv.className = className;
+
+            if (isHTML) {
+                messageDiv.innerHTML = text;  // Interpreta o conteúdo como HTML
+            } else {
+                messageDiv.textContent = text;  // Usa textContent para texto puro
+            }
+
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight; // Rolagem automática para o final do chat
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+
+            if (currentStep === "menu") {
+                currentStep = "option";
+                return `
+                    <p>Por favor, escolha uma das opções:</p>
+                    <div class="bot-menu">
+                        <button onclick="handleOption(1)">Registro de Imóveis</button>
+                        <button onclick="handleOption(2)">Certidões</button>
+                        <button onclick="handleOption(3)">Horário de Funcionamento</button>
+                        <button onclick="handleOption(4)">Falar com um atendente</button>
+                        <button onclick="handleOption(5)">Documentos Necessários</button>
+                        <button onclick="handleOption(6)">Dúvidas Frequentes</button> <!-- Nova opção -->
+                    </div>
+                `;
+            }
+
+            return "Desculpe, não entendi. Pode reformular a pergunta?";
+        }
+
+        function handleOption(option) {
+            let botResponse;
+
+            switch(option) {
+                case 1:
+                    botResponse = "Você escolheu Registro de Imóveis. Em que posso te ajudar com isso?";
+                    break;
+                case 2:
+                    botResponse = "Você escolheu Certidões. Qual tipo de certidão você precisa?";
+                    break;
+                case 3:
+                    botResponse = "Nosso horário de funcionamento é de segunda a sexta, das 9:00hrs às 15:00hrs.";
+                    break;
+                case 4:
+                    botResponse = "Por favor, aguarde enquanto conectamos você a um atendente.";
+                    break;
+                case 5:
+                    botResponse = "Baixando o formulário...";  // Aqui você pode adicionar lógica para download do arquivo
+                    downloadFile('documentos.docx');
+                    break;
+                case 6:  // Opção de Dúvidas Frequentes
+                    botResponse = getFAQs();
+                    break;
+                default:
+                    botResponse = "Opção inválida.";
+            }
+
+            addMessage(botResponse, "bot-message", true);  // Adiciona a resposta do bot
+            currentStep = "menu";  // Retorna ao menu principal após processar a opção
+        }
+
+        function getFAQs() {
+            return `
+                <h3>Dúvidas Frequentes:</h3>
+                <ul>
+                    <li><strong>O que é uma Matrícula e uma Matrícula Mãe?</strong><br>A Matrícula é a especialização, a individualização, a personificação definitiva de todos os dados legalmente exigidos que deve assegurar-se a um imóvel. A Matrícula mãe compreende o empreendimento no seu todo (incorporações e/ou especificações de condomínio, loteamentos).</li>
+                    <li><strong>O que é uma Certidão Negativa de Propriedade?</strong><br>É uma certidão que afirma a inexistência de propriedade de bem imóvel acerca de determinada pessoa.</li>
+                    <li><strong>O que é uma Certidão de Propriedade com Negativa de Ônus?</strong><br>É uma certidão que afirma não constar ônus de espécie alguma sobre o imóvel, ou, em relação ao seu proprietário.</li>
+                    <li><strong>O que é uma Certidão de Inteiro Teor?</strong><br>É o documento completo, alusivo a determinado ato, extraído ou da transcrição, da matrícula, registro e ainda de outras anotações existentes no Ofício que digam respeito ao bem imóvel ou ao seu proprietário.</li>
+                    <li><strong>O que é uma Certidão Vintenária?</strong><br>É uma Certidão que relata tudo o que ocorreu sobre o imóvel no período dos últimos 20 anos.</li>
+                    <li><strong>IPTU/Censo Imobiliário é o mesmo que a Matrícula do Imóvel?</strong><br>Não. A inscrição ou o IPTU são cadastros referentes à prefeitura, enquanto a Matrícula é o número correspondente ao documento com os registros realizados pelas Serventias de Registro de Imóveis.</li>
+                </ul>
+            `;
+        }
+
+        function downloadFile(fileUrl) {
+            var link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = fileUrl.split('/').pop();  // Define o nome do arquivo para download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);  // Remove o link após o download
+        }
+    </script>
+    <div class="chatbot">
+        <div class="chat-header">Chatbot</div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">Olá! Como posso te ajudar hoje?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=5571999783709&text=Olá!%20Gostaria%20de%20mais%20informações." 
+   class="whatsapp-button" target="_blank">
+   <img src="imagens/whatsapp.png" alt="WhatsApp" />
+</a>
+</body>
+</html>
